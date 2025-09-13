@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c35b128pxwjy8"]
+
+[ext_resource type="Script" uid="uid://bjpvv0k07x82h" path="res://core.gd" id="1_05t4c"]
+[ext_resource type="Texture2D" uid="uid://i5x5b26pdgj5" path="res://images/Ship parts/Core.png" id="2_l5qv6"]
+[ext_resource type="Script" uid="uid://blnhnd1h1b7o7" path="res://collision.gd" id="3_nji8p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0xm2m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l5qv6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Core" type="RigidBody2D"]
+script = ExtResource("1_05t4c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_0xm2m")
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(512, 0, 256, 443.405, -256, 443.405, -512, 6.26998e-14, -256, -443.405, 256, -443.405)
+script = ExtResource("3_nji8p")
+radius = 512.0

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6kwv75c4d6hs"]
+
+[ext_resource type="PackedScene" uid="uid://c35b128pxwjy8" path="res://core.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://2lawo0wmvtuy" path="res://camera.gd" id="2_0xm2m"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Parts" type="Node2D" parent="Player"]
+
+[node name="Core" parent="Player/Parts" instance=ExtResource("1_0xm2m")]
+THRUST = 999.0
+
+[node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("core")]
+zoom = Vector2(0.1, 0.1)
+script = ExtResource("2_0xm2m")
+core = NodePath("../Player/Parts/Core")
