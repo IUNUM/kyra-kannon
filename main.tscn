@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6kwv75c4d6hs"]
+[gd_scene load_steps=5 format=3 uid="uid://b6kwv75c4d6hs"]
 
 [ext_resource type="PackedScene" uid="uid://c35b128pxwjy8" path="res://core.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://d53sgeqxv1uh" path="res://player.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://2lawo0wmvtuy" path="res://camera.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://dqg6f1m1a6lwx" path="res://parts.gd" id="2_1bvp3"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" type="Node2D" parent="."]
+script = ExtResource("1_h2yge")
 
 [node name="Parts" type="Node2D" parent="Player"]
+script = ExtResource("2_1bvp3")
 
 [node name="Core" parent="Player/Parts" instance=ExtResource("1_0xm2m")]
 THRUST = 999.0
@@ -16,3 +20,5 @@ THRUST = 999.0
 zoom = Vector2(0.1, 0.1)
 script = ExtResource("2_0xm2m")
 core = NodePath("../Player/Parts/Core")
+
+[connection signal="new_part" from="Player" to="Player/Parts" method="_on_new_part"]

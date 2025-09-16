@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c35b128pxwjy8"]
+[gd_scene load_steps=8 format=3 uid="uid://c35b128pxwjy8"]
 
 [ext_resource type="Script" uid="uid://bjpvv0k07x82h" path="res://core.gd" id="1_05t4c"]
 [ext_resource type="Texture2D" uid="uid://i5x5b26pdgj5" path="res://images/Ship parts/Core.png" id="2_l5qv6"]
@@ -27,6 +27,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_l5qv6"]
+
 [node name="Core" type="RigidBody2D"]
 script = ExtResource("1_05t4c")
 
@@ -45,3 +47,6 @@ offset = Vector2(390.125, -838.959)
 position = Vector2(-0.0020752, 0)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_0xm2m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l5qv6")
